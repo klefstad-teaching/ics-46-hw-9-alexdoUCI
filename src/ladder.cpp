@@ -27,3 +27,8 @@ vector<string> generate_word_ladder(const string& begin_word, const string& word
     }
     return {};
 }
+
+bool is_adjacent(const string& word1, const string& word2)
+{
+    
+}
