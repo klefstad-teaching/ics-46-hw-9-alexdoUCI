@@ -30,5 +30,16 @@ vector<string> generate_word_ladder(const string& begin_word, const string& word
 
 bool is_adjacent(const string& word1, const string& word2)
 {
-    
+    int len1 = word1.size();
+    int len2 = word2.size();
+
+}
+
+void load_words(set<string>& word_list, const string& file_name)
+{
+    ifstream input_file(file_name);
+    string word;
+    while (file >> word) {
+        word_list.insert(word);
+    }
 }
