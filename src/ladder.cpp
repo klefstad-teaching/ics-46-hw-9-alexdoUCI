@@ -1,5 +1,10 @@
 #include "ladder.h"
 
+void error(string word1, string word2, string msg)
+{
+    cerr << "ERROR:  " << msg << word1 << "to " << word2 << endl;
+}
+
 vector<string> generate_word_ladder(const string& begin_word, const string& word, const set<string>& word_list)
 {
     queue<vector<string> ladder_queue;
