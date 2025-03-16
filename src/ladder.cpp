@@ -28,11 +28,22 @@ vector<string> generate_word_ladder(const string& begin_word, const string& word
     return {};
 }
 
-bool is_adjacent(const string& word1, const string& word2)
+bool is_adjacent(const string& word1, const string& word2) // what the fuck even is this shit
 {
     int len1 = word1.size();
     int len2 = word2.size();
-
+    if (abs(len1 - len2) > 0) return false;
+    int diff_count = 0
+    for (i = 0, j = 0; i < len1 && j < len2; ) {
+        if (word1[i] != word2[j]) return false;
+        if (len1 > len2) ++i;
+        else if (len1 < len2) ++j;
+        else {
+            ++i;
+            ++j;
+        }
+    }
+    return true;
 }
 
 void load_words(set<string>& word_list, const string& file_name)
@@ -43,3 +54,4 @@ void load_words(set<string>& word_list, const string& file_name)
         word_list.insert(word);
     }
 }
+
