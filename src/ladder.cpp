@@ -63,14 +63,14 @@ void load_words(set<string>& word_list, const string& file_name)
 {
     ifstream input_file(file_name);
     string word;
-    while (file >> word) {
+    while (input_file >> word) {
         word_list.insert(word);
     }
 }
 
 void print_word_ladder(const vector<string>& ladder)
 {
-    for (word : ladder)
+    for (string word : ladder)
         cout << word << endl;
 }
 
