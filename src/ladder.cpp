@@ -45,14 +45,14 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     int str2_size = str2.size();
     int diff_count = 0;
     if (std::abs(str1_size - str2_size) > d) return false;
-    for (int i = 0, int j = 0; i < str1_size && j < str2_size; ) {
+    for (int i = 0, j = 0; i < str1_size && j < str2_size; ) {
         if (str1_size[i] != str2_size[j]) {
             if (++diff_count > d) return false;
-            if (str1_size > str2_size) ++i; // Skip a character in str1 (deletion)
-            else if (str1_size < str2_size) ++j; // Skip a character in str2 (insertion)
-            else { ++i; ++j; } // Substitution
+            if (str1_size > str2_size) ++i; 
+            else if (str1_size < str2_size) ++j;
+            else { ++i; ++j; } 
         } else {
-            ++i; ++j; // Characters match, move forward
+            ++i; ++j; 
         }
     }
     diff_count += std::abs(str1_size - str2_size);
