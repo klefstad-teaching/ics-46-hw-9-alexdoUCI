@@ -8,7 +8,7 @@ void error(string word1, string word2, string msg)
 
 vector<string> generate_word_ladder(const string& begin_word, const string& word, const set<string>& word_list)
 {
-    queue<vector<string> ladder_queue;
+    queue<vector<string>> ladder_queue;
     ladder_queue.push({begin_word});
     set<string> visited;
     visited.insert(begin_word);
