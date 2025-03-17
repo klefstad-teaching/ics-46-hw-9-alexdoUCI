@@ -10,12 +10,12 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
     priority_queue<pair<int, int>> min_heap;
     min_heap.push({source, 0});
     while(!min_heap.empty()) {
-        int u = min_heap.extractVertexWithMinimumWeight().first;
+        int u = min_heap.top().first;
         if (visited[u]) continue;
         visited[u] = true;
         for (Edge edge : G[u]) {
             int v = edge.dst;
-            int w = edge.second;
+            int w = edge.weight;
             if (!visited[v] && distances[u] + w < distances[v]) {
                 distances[v] = distances[u] + w;
                 previous[v] = u;
