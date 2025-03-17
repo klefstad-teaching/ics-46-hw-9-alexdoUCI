@@ -67,3 +67,8 @@ void load_words(set<string>& word_list, const string& file_name)
     }
 }
 
+void print_word_ladder(const vector<string>& ladder)
+{
+    for (word : ladder)
+        cout << word << endl;
+}
