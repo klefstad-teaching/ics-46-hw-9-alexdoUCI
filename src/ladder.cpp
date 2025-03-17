@@ -35,19 +35,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& word
 
 bool is_adjacent(const string& word1, const string& word2) // what the fuck even is this shit
 {
-    int word_size1 = word1.size();
-    int word_size2 = word2.size();
-    if (abs(word_size1 - word_size2) > 1) return false;
-    for (int i = 0, int j = 0, int diff_count = 0 ; i < word_size1 && j < word_size2; ) {
-        if (word1[i] != word2[j]) return false;
-        if (word_size1 > word_size2) ++i;
-        else if (word_size1 < word_size2) ++j;
-        else {
-            ++i;
-            ++j;
-        }
-    }
-    return true;
+    return edit_distance_within(word1, word2, 1);
 }
 
 bool edit_distance_within(const std::string& str1, const std::string& str2, int d)
