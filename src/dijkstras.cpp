@@ -34,8 +34,8 @@ vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& prev
 
 void print_path(const vector<int>& v, int total)
 {
-    for (int v : path) {
-        cout << v << " ";
+    for (int n : v) {
+        cout << n << " ";
     }
     cout << "(Cost: " << total << ")" << endl;
 }
