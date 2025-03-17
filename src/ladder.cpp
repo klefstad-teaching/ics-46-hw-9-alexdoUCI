@@ -34,7 +34,7 @@ vector<string> generate_word_ladder(const string& begin_word, const string& word
     return {};
 }
 
-bool is_adjacent(const string& word1, const string& word2) // what the fuck even is this shit
+bool is_adjacent(const string& word1, const string& word2) 
 {
     return edit_distance_within(word1, word2, 1);
 }
@@ -62,6 +62,9 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
 void load_words(set<string>& word_list, const string& file_name)
 {
     ifstream input_file(file_name);
+    if (!input_file) {
+        cerr << "ERROR: Could not open" << file_name << endl;
+    }
     string word;
     while (input_file >> word) {
         word_list.insert(word);
@@ -70,7 +73,7 @@ void load_words(set<string>& word_list, const string& file_name)
 
 void print_word_ladder(const vector<string>& ladder)
 {
-    for (string word : ladder)
+    for (const string& word : ladder)
         cout << word << endl;
 }
 
