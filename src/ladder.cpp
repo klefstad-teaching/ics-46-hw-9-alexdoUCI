@@ -44,19 +44,25 @@ bool edit_distance_within(const std::string& str1, const std::string& str2, int 
     int str1_size = str1.size();
     int str2_size = str2.size();
     int diff_count = 0;
+    bool diff_found = false;
     if (std::abs(str1_size - str2_size) > d) return false;
     for (int i = 0, j = 0; i < str1_size && j < str2_size; ) {
-        if (str1[i] != str2[j]) {
-            if (++diff_count > d) return false;
-            if (str1_size > str2_size) ++i; 
-            else if (str1_size < str2_size) ++j;
-            else { ++i; ++j; } 
+        if (str1[i] == str2[j]) {
+            ++i;
+            ++j;
         } else {
-            ++i; ++j; 
+            if (diff_found)
+                return false;
+            diff_found = true;
+            if (str1_size > str2_size) ++i;
+            else if (str1_size < str2_size) ++j;
+            else {
+                ++i;
+                ++j;
+            }
         }
     }
-    diff_count += std::abs(str1_size - str2_size);
-    return diff_count <= d;
+    return true;
 }
 
 void load_words(set<string>& word_list, const string& file_name)
