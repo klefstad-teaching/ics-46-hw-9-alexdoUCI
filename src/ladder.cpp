@@ -8,25 +8,25 @@ void error(string word1, string word2, string msg)
 
 vector<string> generate_word_ladder(const string& begin_word, const string& word, const set<string>& word_list)
 {
-    queue<vector<string, string>> ladder_queue;
-    ladder_queue.push({begin_word});
+    queue<vector<string>> ladder_queue;
+    ladder_queue.push(vector<string>({begin_word}));
     set<string> visited;
     visited.insert(begin_word);
 
     while (!ladder_queue.empty()) {
-        string ladder = ladder_queue.front();
+        vector<string> ladder = ladder_queue.front();
         ladder_queue.pop();
         string last_word = ladder.back();
 
-        for (const string& word : word_list) {
-            if (is_adjacent(last_word, word) && visited.find(word) == visited.end()) {
+        for (const string& words : word_list) {
+            if (is_adjacent(last_word, words) && visited.find(words) == visited.end()) {
                 vector<string> new_ladder = ladder;
-                new_ladder.push_back(word);
+                new_ladder.push_back(words);
 
-                if (word == end_word)
+                if (words == word)
                     return new_ladder;
 
-                visited.insert(word);
+                visited.insert(words);
                 ladder_queue.push(new_ladder);
             }
         }
