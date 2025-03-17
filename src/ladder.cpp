@@ -85,7 +85,7 @@ void print_word_ladder(const vector<string>& ladder) {
         for (const string& word : ladder) {
             cout << " " << word;
         }
-        cout << endl;
+        cout << " " << endl;
     }
 }
 
