@@ -1,6 +1,6 @@
 #include "dijkstras.h"
 
-vector<int> dijkstra_shortest_path(const Graph& G, int souce, vector<int>& previous)
+vector<int> dijkstra_shortest_path(const Graph& G, int source, vector<int>& previous)
 {
     int nv = G.size();
     vector<int> distances(nv, INF);
